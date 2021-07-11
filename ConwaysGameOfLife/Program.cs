@@ -40,7 +40,7 @@ namespace ConwaysGameOfLife
                     Console.Write("\r\n");
                 }
 
-                if (rand.Next(30) == 5)
+                if (rand.Next(10) == 5)
                 {
                     livingCells.Add(new Point(x, y));
                     Console.Write("X");
@@ -98,8 +98,6 @@ namespace ConwaysGameOfLife
                 currentPoint.X++;
             }
         }
-
-
 
         public static IEnumerable<List<Point>> GetNextGen(int xAxis, int yAxis, List<Point> livingCells, List<Point> deadCells)
         {
@@ -175,7 +173,7 @@ namespace ConwaysGameOfLife
                     deadCells.Add(currentPoint);
                 }
 
-                else if (numNeighbors == 2 || numNeighbors == 3 && deadCells.Contains(currentPoint))
+                else if (numNeighbors == 3 && deadCells.Contains(currentPoint))
                 {
                     livingCells.Add(currentPoint);
                     deadCells.Remove(currentPoint);
